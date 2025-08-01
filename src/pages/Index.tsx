@@ -88,14 +88,30 @@ const Index = () => {
       <div className="max-w-6xl mx-auto space-y-8 relative">
         {/* Header */}
         <div className="text-center space-y-6 py-8">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-card mb-4">
-            <Code className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium">AI-Powered Developer Insights</span>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="flex gap-1">
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+            </div>
+            <div className="flex gap-1">
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+            </div>
+            <div className="flex gap-1">
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+            </div>
           </div>
-          <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-            Developer Evaluator
+          <h1 className="text-5xl font-bold text-white mb-2">
+            Artemis
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-white/80 text-xl mb-2">
+            by Oncode
+          </p>
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
             Analyze GitHub repositories to evaluate developer skills and get AI-powered insights
           </p>
         </div>
