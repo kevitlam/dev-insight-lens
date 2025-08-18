@@ -5,6 +5,7 @@ import LoadingState from '../components/LoadingState';
 import ResultsCard from '../components/ResultsCard';
 import ErrorMessage from '../components/ErrorMessage';
 import WelcomeMessage from '../components/WelcomeMessage';
+import HealthCheck from '../components/HealthCheck';
 
 const Index = () => {
   const [appState, setAppState] = useState('idle'); // 'idle', 'loading', 'success', 'error'
@@ -31,12 +32,19 @@ const Index = () => {
     <div className="min-h-screen bg-muted/30">
       <header className="bg-background shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-foreground">
-            🎯 AI Developer Evaluator
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            Paste any GitHub profile URL and get an instant AI-powered skill assessment
-          </p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground">
+                🎯 AI Developer Evaluator
+              </h1>
+              <p className="text-muted-foreground mt-2">
+                Paste any GitHub profile URL and get an instant AI-powered skill assessment
+              </p>
+            </div>
+            <div className="mt-2">
+              <HealthCheck />
+            </div>
+          </div>
         </div>
       </header>
 
