@@ -52,10 +52,10 @@ const GitHubInput = ({ value, onChange, onAnalyze, disabled }) => {
         <button
           type="submit"
           disabled={disabled || !value.trim()}
-          className={`w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-sm sm:text-base ${
+          className={`w-full py-3 sm:py-3.5 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold transition-all duration-200 text-sm sm:text-base border-2 ${
             disabled || !value.trim()
-              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              : 'bg-gray-900 text-white hover:bg-gray-800 shadow-sm hover:shadow-md'
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
+              : 'bg-gray-900 text-white hover:bg-gray-800 shadow-md hover:shadow-lg border-gray-900 hover:border-gray-800 transform hover:-translate-y-0.5'
           }`}
         >
           {disabled ? (
@@ -64,29 +64,15 @@ const GitHubInput = ({ value, onChange, onAnalyze, disabled }) => {
               <span>Analyzing...</span>
             </div>
           ) : (
-            'Analyze Profile'
+            <div className="flex items-center justify-center space-x-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Analyze Profile</span>
+            </div>
           )}
         </button>
       </form>
-
-      <div className="mt-3 sm:mt-4 text-center">
-        <div className="flex flex-col sm:flex-row items-center justify-center">
-          <span className="text-xs text-gray-500 mb-2 sm:mb-0 sm:mr-3">Try examples:</span>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-            {['octocat', 'defunkt', 'mojombo'].map((username) => (
-              <button
-                key={username}
-                type="button"
-                onClick={() => onChange(`https://github.com/${username}`)}
-                disabled={disabled}
-                className="text-xs text-gray-500 hover:text-gray-900 underline disabled:text-gray-300 transition-colors duration-200 px-1"
-              >
-                {username}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
