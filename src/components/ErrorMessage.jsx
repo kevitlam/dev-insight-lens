@@ -26,20 +26,20 @@ const ErrorMessage = ({ error, onRetry }) => {
   };
 
   return (
-    <div className="text-center py-12">
-      <p className="text-red-600 text-sm mb-4">{error}</p>
+    <div className="text-center py-8 sm:py-12 px-4">
+      <p className="text-red-600 text-sm mb-3 sm:mb-4 max-w-md mx-auto">{error}</p>
       
       {isRateLimit && countdown > 0 && (
-        <p className="text-orange-600 text-xs mb-4">
+        <p className="text-orange-600 text-xs mb-3 sm:mb-4">
           Try again in {formatTime(countdown)}
         </p>
       )}
       
-      <div className="flex gap-2 justify-center">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center max-w-sm mx-auto">
         <button 
           onClick={onRetry}
           disabled={isRateLimit && countdown > 0}
-          className={`px-4 py-2 rounded-lg text-sm ${
+          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             isRateLimit && countdown > 0
               ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
               : 'bg-red-600 text-white hover:bg-red-700'
@@ -51,7 +51,7 @@ const ErrorMessage = ({ error, onRetry }) => {
         {isNetwork && (
           <button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800"
+            className="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 font-medium transition-colors"
           >
             Refresh
           </button>
