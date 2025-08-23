@@ -29,26 +29,20 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      <header className="bg-background shadow-sm border-b">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <div className="flex justify-between items-start">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">
-                🎯 AI Developer Evaluator
-              </h1>
-              <p className="text-muted-foreground mt-2">
-                Paste any GitHub profile URL and get an instant AI-powered skill assessment
-              </p>
-            </div>
-            <div className="mt-2">
-              <HealthCheck />
-            </div>
+    <div className="min-h-screen bg-white">
+      <main className="max-w-2xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-2xl font-medium text-gray-900 mb-3">
+            oncode developer analysis
+          </h1>
+          <p className="text-gray-600 text-sm">
+            Analyze GitHub profiles with AI
+          </p>
+          <div className="mt-4 flex justify-center">
+            <HealthCheck />
           </div>
         </div>
-      </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
         <GitHubInput 
           value={githubUrl}
           onChange={setGithubUrl}

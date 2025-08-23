@@ -8,7 +8,6 @@ const ErrorMessage = ({ error, onRetry }) => {
 
   useEffect(() => {
     if (isRateLimit && countdown === 0) {
-      // Start 15-minute countdown for rate limit errors
       setCountdown(15 * 60);
     }
   }, [isRateLimit]);
@@ -26,40 +25,24 @@ const ErrorMessage = ({ error, onRetry }) => {
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  const getErrorIcon = () => {
-    if (isRateLimit) return '⏰';
-    if (isNetwork) return '🌐';
-    return '⚠️';
-  };
-
-  const getErrorTitle = () => {
-    if (isRateLimit) return 'Rate Limited';
-    if (isNetwork) return 'Connection Error';
-    return 'Analysis Failed';
-  };
-
   return (
-    <div className="bg-background rounded-lg shadow-sm border border-destructive/20 p-6 text-center">
-      <div className="text-destructive text-4xl mb-4">{getErrorIcon()}</div>
-      <h3 className="text-lg font-semibold text-destructive mb-2">{getErrorTitle()}</h3>
-      <p className="text-destructive/80 mb-4">{error}</p>
+    <div className="text-center py-12">
+      <p className="text-red-600 text-sm mb-4">{error}</p>
       
       {isRateLimit && countdown > 0 && (
-        <div className="mb-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
-          <p className="text-orange-800 text-sm">
-            You can try again in: <span className="font-mono font-bold">{formatTime(countdown)}</span>
-          </p>
-        </div>
+        <p className="text-orange-600 text-xs mb-4">
+          Try again in {formatTime(countdown)}
+        </p>
       )}
       
       <div className="flex gap-2 justify-center">
         <button 
           onClick={onRetry}
           disabled={isRateLimit && countdown > 0}
-          className={`px-6 py-2 rounded-lg font-medium ${
+          className={`px-4 py-2 rounded-lg text-sm ${
             isRateLimit && countdown > 0
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              : 'bg-destructive text-destructive-foreground hover:bg-destructive/90'
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-red-600 text-white hover:bg-red-700'
           }`}
         >
           {isRateLimit && countdown > 0 ? 'Please Wait' : 'Try Again'}
@@ -68,9 +51,9 @@ const ErrorMessage = ({ error, onRetry }) => {
         {isNetwork && (
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800"
           >
-            Refresh Page
+            Refresh
           </button>
         )}
       </div>
