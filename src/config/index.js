@@ -12,7 +12,7 @@ const config = {
     retryAttempts: 3,
   },
   production: {
-    apiUrl: import.meta.env.VITE_API_URL || 'https://your-backend-domain.com',
+    apiUrl: import.meta.env.VITE_API_URL || 'https://artemis-backend-mx4u.onrender.com',
     enableDebugLogs: false,
     enableHealthCheck: true,
     healthCheckInterval: 10 * 60 * 1000, // 10 minutes
