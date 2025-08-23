@@ -29,8 +29,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <main className="max-w-2xl mx-auto px-6 py-16">
+    <div className="min-h-screen bg-gray-50">
+      <main className="max-w-6xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-2xl font-medium text-gray-900 mb-3">
             oncode developer analysis
@@ -43,12 +43,14 @@ const Index = () => {
           </div>
         </div>
 
-        <GitHubInput 
-          value={githubUrl}
-          onChange={setGithubUrl}
-          onAnalyze={handleAnalyze}
-          disabled={appState === 'loading'}
-        />
+        <div className="max-w-2xl mx-auto mb-8">
+          <GitHubInput 
+            value={githubUrl}
+            onChange={setGithubUrl}
+            onAnalyze={handleAnalyze}
+            disabled={appState === 'loading'}
+          />
+        </div>
 
         <div className="mt-8">
           {appState === 'idle' && <WelcomeMessage />}

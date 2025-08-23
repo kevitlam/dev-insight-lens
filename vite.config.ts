@@ -19,4 +19,9 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    // Ensure environment variables are available at build time
+    __VITE_API_URL__: JSON.stringify(process.env.VITE_API_URL),
+    __VITE_NODE_ENV__: JSON.stringify(process.env.VITE_NODE_ENV),
+  },
 }));

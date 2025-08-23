@@ -1,13 +1,28 @@
 const LoadingState = () => {
   return (
     <div className="text-center py-16">
-      <div className="inline-flex items-center justify-center w-8 h-8 mb-4">
-        <svg className="animate-spin w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" className="opacity-25"></circle>
-          <path fill="currentColor" className="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
+      {/* Improved loading animation */}
+      <div className="relative inline-flex items-center justify-center mb-6">
+        {/* Outer rotating ring */}
+        <div className="w-16 h-16 border-4 border-gray-200 rounded-full animate-spin border-t-gray-900"></div>
+        {/* Inner pulsing dot */}
+        <div className="absolute w-4 h-4 bg-gray-900 rounded-full animate-pulse"></div>
       </div>
-      <p className="text-gray-600 text-sm">Analyzing profile...</p>
+      
+      {/* Loading text with typing animation */}
+      <div className="space-y-2">
+        <h3 className="text-lg font-medium text-gray-900">Analyzing Profile</h3>
+        <div className="flex items-center justify-center space-x-1">
+          <div className="flex space-x-1">
+            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-500 max-w-sm mx-auto">
+          Reviewing repositories and analyzing code patterns...
+        </p>
+      </div>
     </div>
   );
 };
